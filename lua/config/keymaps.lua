@@ -29,6 +29,10 @@ del_keymappings(del_keymaps)
 
 local keymaps = {
   { "n", "<leader>w", "<CMD>w!<CR>", { desc = "Save File" } },
+  { "n", "<A-j>", "<Cmd>resize +1<CR>", { desc = "Increase height" } },
+  { "n", "<A-k>", "<Cmd>resize -1<CR>", { desc = "Decrease height" } },
+  { "n", "<A-l>", "<Cmd>vertical resize +1<CR>", { desc = "Increase width" } },
+  { "n", "<A-h>", "<Cmd>vertical resize -1<CR>", { desc = "Decrease width" } },
   { "i", "<A-k>", "<C-\\><C-N><C-w>k", { desc = "Go to the up window (Insert)", noremap = false } },
   { "i", "<A-j>", "<C-\\><C-N><C-w>j", { desc = "Go to the down window (Insert)", noremap = false } },
   { "i", "<A-h>", "<C-\\><C-N><C-w>h", { desc = "Go to the left window (Insert)", noremap = false } },
@@ -45,14 +49,6 @@ if LazyVim.has("tmux.nvim") then
   copy.setup()
   navigation.setup()
   resize.setup()
-else
-  keymaps = {
-    { "n", "<A-j>", "<Cmd>resize +1<CR>", { desc = "Increase height" } },
-    { "n", "<A-k>", "<Cmd>resize -1<CR>", { desc = "Decrease height" } },
-    { "n", "<A-l>", "<Cmd>vertical resize +1<CR>", { desc = "Increase width" } },
-    { "n", "<A-h>", "<Cmd>vertical resize -1<CR>", { desc = "Decrease width" } },
-  }
-  keymappings(keymaps)
 end
 
 require("config/keymaps-vscode")

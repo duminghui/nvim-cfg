@@ -7,6 +7,30 @@ return {
   { import = "plugins.editor.telescope" },
   { import = "plugins.editor.trouble" },
   {
+    "lewis6991/gitsigns.nvim",
+    opts = {
+      signs = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        -- delete = { text = icons.ui.MenuRight },
+        -- topdelete = { text = icons.ui.MenuRight },
+        changedelete = { text = "▎" },
+        untracked = { text = "▎" },
+      },
+      signs_staged = {
+        add = { text = "▎" },
+        change = { text = "▎" },
+        delete = { text = "" },
+        topdelete = { text = "" },
+        -- delete = { text = icons.ui.MenuRight },
+        -- topdelete = { text = icons.ui.MenuRight },
+        changedelete = { text = "▎" },
+      },
+    },
+  },
+  {
     "folke/todo-comments.nvim",
     --- require("todo-comments")
     --- @type TodoOptions

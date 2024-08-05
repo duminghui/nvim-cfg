@@ -113,4 +113,8 @@ opt.swapfile = false
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
+-- opt.stc = '%{substitute(v:lnum,"\\d\\zs\\ze\\%(\\d\\d\\d\\)\\+$",",","g")}'
+-- opt.stc = "%=%{v:relnum?'':v:lnum}%=%{v:relnum?v:relnum:''} "
+-- opt.stc = ""
+
 -- vim.cmd([[language message en_US.UTF-8]])
