@@ -43,44 +43,19 @@ M.opts = {
   },
 }
 
-local function set_highlight()
-  local tbl = require("xxx.core.table")
-  local colors = require("xxx.core.colors")
-
-  local rb_colors = colors.rainbow()
-
-  local bg = colors.universal().bg
-
-  for i = 1, tbl.len(rb_colors) do
-    local c_key = string.format("c%s", i)
-    local color_org = rb_colors[c_key]
-    local color = colors.compositeColors(0x4D, color_org, bg)
-    vim.cmd(string.format("highlight IndentBlanklineIndent%s guifg=%s gui=nocombine", i, color))
-    vim.cmd(string.format("highlight IndentBlanklineScopeChar%s guifg=%s gui=nocombine", i, color_org))
-    -- vim.schedule(function()
-    -- vim.notify(string.format('%s %s %s', i, color_org, color))
-    -- end)
-  end
-
-  -- vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
-
-  -- 要在listchars中添加 space:⋅, space相关的才会显示出来
-  -- vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#FFA500 gui=nocombine]]
-  -- vim.cmd [[highlight IndentBlanklineContextSpaceChar guifg=#E3170D gui=nocombine ]]
-end
-
 ---@param opts ibl.config
 M.config = function(_, opts)
   -- vim.opt.list = true
   -- vim.opt.listchars:append "space:⋅"
   -- vim.opt.listchars:append "eol:↴"
-  --   vim.print(M.opts)
+  -- vim.print(M.opts)
 
-  vim.g.rainbow_delimiters = { highlight = opts.scope.highlight }
+  -- vim.g.rainbow_delimiters = { highlight = opts.scope.highlight }
 
   local hooks = require("ibl.hooks")
   hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-    set_highlight()
+    local colors = require("xxx.core.colors")
+    colors.gen_rainbow_highlight()
   end)
 
   local indent_blankline = require("ibl")

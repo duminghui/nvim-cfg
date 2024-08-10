@@ -4,6 +4,7 @@ return {
   {
     "rcarriga/nvim-notify",
     opts = {
+      background_colour = "NotifyBackground",
       icons = {
         DEBUG = icons.diagnostic.Debug .. " ",
         ERROR = icons.diagnostic.Error .. " ",
@@ -11,12 +12,13 @@ return {
         TRACE = icons.diagnostic.Trace .. " ",
         WARN = icons.diagnostic.Warning .. " ",
       },
+      render = "wrapped-compact",
       timeout = 6000,
     },
   },
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
-  { import = "plugins.ui.ident-blankline" },
+  { import = "plugins.ui.indent-blankline" },
   { import = "plugins.ui.noice" },
 
   { import = "plugins.ui.mini-icons" },
@@ -66,8 +68,20 @@ return {
 
   {
     "HiPhish/rainbow-delimiters.nvim",
+    dependencies = { "lukas-reineke/indent-blankline.nvim" },
     event = { "User FileOpened" },
     submodules = false,
+    config = function()
+      -- vim.schedule(function()
+      --   vim.print(LazyVim.get_plugin("indent-blankline.nvim").opts.scope.highlight)
+      -- end)
+      local highlight = LazyVim.get_plugin("indent-blankline.nvim").opts.scope.highlight
+      local opts = {
+        highlight = highlight,
+      }
+      require("rainbow-delimiters.setup").setup(opts)
+    end,
+    priority = 49,
   },
 
   { import = "plugins.ui.tmux" },

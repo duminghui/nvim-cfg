@@ -55,7 +55,9 @@ opt.fillchars = {
 opt.guicursor =
   "n-v:block,i-c-ci-ve:ver25,r-cr:hor20,o:hor50,a:blinkwait300-blinkoff300-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 opt.list = true -- Show some invisible characters like tabs etc
+
 opt.listchars = "tab:›󰨓,trail:•,extends:#,nbsp:." -- ■
+-- opt.listchars = "tab:›󰌒,trail:•,extends:#,nbsp:." -- ■
 opt.whichwrap:append("b,s,h,l,<,>,[,]")
 
 opt.scrolloff = 6 -- Set the cursor 6 lines down instead of directly at the top of the file

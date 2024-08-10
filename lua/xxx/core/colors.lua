@@ -88,8 +88,29 @@ local rainbow = {
   c8 = "#859900",
 }
 
-function M.rainbow()
-  return rainbow
+function M.gen_rainbow_highlight()
+  local tbl = require("xxx.core.table")
+
+  local rb_colors = rainbow
+
+  local bg = "#002b36" -- universal.bg
+
+  for i = 1, tbl.len(rb_colors) do
+    local c_key = string.format("c%s", i)
+    local color_org = rb_colors[c_key]
+    local color = M.compositeColors(0x4D, color_org, bg)
+    vim.cmd(string.format("highlight IndentBlanklineIndent%s guifg=%s gui=nocombine", i, color))
+    vim.cmd(string.format("highlight IndentBlanklineScopeChar%s guifg=%s gui=nocombine", i, color_org))
+    -- vim.schedule(function()
+    -- vim.notify(string.format('%s %s %s', i, color_org, color))
+    -- end)
+  end
+
+  -- vim.cmd([[highlight IndentBlanklineContextChar guifg=#FFD700 gui=nocombine]])
+
+  -- 要在listchars中添加 space:⋅, space相关的才会显示出来
+  -- vim.cmd [[highlight IndentBlanklineSpaceChar guifg=#FFA500 gui=nocombine]]
+  -- vim.cmd [[highlight IndentBlanklineContextSpaceChar guifg=#E3170D gui=nocombine ]]
 end
 
 return M

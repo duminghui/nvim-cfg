@@ -8,6 +8,10 @@ M.opts = {
   ---@type NoiceConfigViews
   views = {
     ---@type NoiceViewOptions
+    notify = {},
+    split = {},
+    vsplit = {},
+    popup = {},
     mini = {
       ---@type NoiceAlign
       align = "message-right",
@@ -20,6 +24,13 @@ M.opts = {
         winblend = 0,
       },
     },
+    cmdline = {},
+    cmdline_popup = {},
+    cmdline_output = {},
+    messages = {},
+    confirm = {},
+    hover = {},
+    popupmenu = {},
   },
   cmdline = {
     ---@type table<string, CmdlineFormat>
@@ -41,7 +52,7 @@ M.opts = {
   },
   popupmenu = {
     ---@type 'nui'|'cmp'
-    backend = "nui",
+    -- backend = "nui",
   },
   lsp = {
     progress = {

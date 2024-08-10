@@ -47,12 +47,14 @@ end
 
 local bg_color = opts.background_color
 
+local bg_color_fix = colors.base03
+
 -- Group.new = function(name, fg, bg, style, guisp, blend)
 -- "guisp" is used for various underlines.
 
 -- Group.new("Normal", colors.base0, bg_color) -- 原值
 Group.new("Normal", colors.base1, bg_color)
--- 浮动窗口
+--- 浮动窗口
 -- print(false and Color.none or colors.base02)
 -- print(true and Color.none or colors.base02)
 -- 上面的全部返回colors.base02
@@ -63,9 +65,11 @@ Group.new("NormalFloat", colors.base1, not opts.background_set and Color.none or
 -- 比如: 在alpha-dashboard界面,弹出Telescope界面后,dashboard的字体顔色就会变成下面设置的
 Group.new("NormalNC", colors.base1:dark(), bg_color)
 
+--- dressing.nvim
 -- fix dressing float title color
-Group.new("FloatTitle", colors.base00, colors.none, styles.none)
--- Group.new('FloatTitle', colors.red, colors.none, styles.reverse)
+-- Group.new("FloatTitle", colors.base00, colors.none, styles.none)
+Group.new("FloatTitle", colors.base00, colors.base02, styles.none) -- fix float bg
+-- Group.new("FloatTitle", colors.red, colors.none, styles.reverse)
 
 -- Group.new('TabLineSel', colors.yellow, bg_color) -- 原值
 
@@ -84,7 +88,7 @@ Group.new("StatusLineNC", colors.base00, colors.base02, styles.reverse)
 -- Group.new('StatusLine', colors.base03, colors.none)
 -- Group.new('StatusLineNC', colors.base03, colors.none)
 
--- custom for statusline
+--- custom for statusline
 Group.new("SlEmpty")
 Group.new("SlComponent", colors.base00, colors.base02)
 Group.new("SlDiffAdd", colors.green, colors.base02)
@@ -103,7 +107,7 @@ Group.new("SlFileScrollbar", colors.gold)
 
 Group.new("Visual", colors.none, colors.base03, styles.reverse)
 
--- pum (popup menu)
+--- pum (popup menu)
 Group.new("Pmenu", groups.Normal, colors.base02, styles.none) -- popup menu normal item
 -- Group.new("PmenuSel", colors.base03, colors.base1, styles.reverse) -- selected item
 Group.new("PmenuSel", colors.none, colors.base03) -- selected item
@@ -113,13 +117,13 @@ Group.new("PmenuThumb", colors.base0, colors.none, styles.reverse)
 -- be nice for this float border to be cyan if active
 -- Group.new('FloatBorder', colors.base02) -- 原值
 -- 修正 vim.opt.winblend != 0 时边框的背景色变成黑色
--- Group.new('FloatBorder', colors.base02, groups.NormalFloat) -- fix bg
-Group.new("FloatBorder", colors.base03, groups.NormalFloat) -- fix bg
+-- Group.new('FloatBorder', colors.base02, groups.NormalFloat) -- fix float bg
+Group.new("FloatBorder", colors.base03, groups.NormalFloat) -- fix float bg
 
--- signcolumn ~ color
+--- signcolumn ~ color
 Group.new("EndOfBuffer", colors.base03, colors.none, styles.none)
 
--- Nvim-Tree
+--- Nvim-Tree
 -- vim.cmd('highlight link NvimTreeFolderName NvimTreeNormal')
 -- Group.new('NvimTreeRootFolder', colors.yellow, colors.none, styles.none)
 -- Group.new('NvimTreeFolderIcon', colors.yellow, colors.none, styles.none)
@@ -127,7 +131,7 @@ Group.new("EndOfBuffer", colors.base03, colors.none, styles.none)
 -- Group.new('NvimTreeGitDirty', colors.yellow, colors.none, styles.none)
 -- Group.new('NvimTreeGitNew', colors.green, colors.none, styles.none)
 
--- neo-tree
+--- neo-tree
 Group.new("NeoTreeRootName", colors.darkgold, nil, styles.bold)
 Group.new("NeoTreeDirectoryIcon", colors.yellow)
 Group.link("NeoTreeFileIcon", groups.Normal)
@@ -149,7 +153,7 @@ vim.cmd([[
     highlight! link NeoTreeFileName Normal
   ]])
 
--- Telescope
+--- Telescope
 -- Group.new('TelescopeMatching', colors.orange, groups.Special, groups.Special, groups.Special)
 -- Group.new('TelescopeBorder', colors.base01) -- float border not quite dark enough, maybe that needs to change?
 -- Group.new('TelescopePromptBorder', colors.cyan) -- active border lighter for clarity
@@ -159,9 +163,9 @@ vim.cmd([[
 -- Group.new('TelescopeSelectionCaret', colors.cyan)
 
 -- 下面三个的背景色和Normal保持一至, 即使Normal没有背景色也要填上
-Group.new("TelescopeBorder", colors.base01, colors.base03) -- fix bg
-Group.new("TelescopePromptBorder", colors.cyan, colors.base03) -- fix bg
-Group.new("TelescopeNormal", groups.Normal, colors.base03, styles.none) -- fix bg
+Group.new("TelescopeBorder", colors.base01, bg_color_fix) -- fix bg
+Group.new("TelescopePromptBorder", colors.cyan, bg_color_fix) -- fix bg
+Group.new("TelescopeNormal", groups.Normal, bg_color_fix) -- fix bg
 -- Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
 -- Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
 -- Group.new('TelescopeResultsTitle', colors.base02, colors.yellow, styles.none)
@@ -169,7 +173,7 @@ Group.new("TelescopePromptTitle", colors.base2, colors.purple, styles.none)
 Group.new("TelescopePreviewTitle", colors.base2, colors.green, styles.none)
 Group.new("TelescopeResultsTitle", colors.base2, colors.yellow, styles.none)
 
--- fidget
+--- fidget
 -- Group.link('FidgetDone', groups.Constant) -- Constant
 -- Group.link('FidgetProgress', groups.WarningMsg) -- WarningMsg
 -- Group.link('FidgetGroup', groups.Title) -- Title
@@ -186,13 +190,13 @@ Group.new("FidgetGroupSeparator", colors.base01)
 Group.new("FidgetNormal", colors.base01)
 Group.link("FidgetBorder", groups.FloatBorder)
 
--- TreesitterContext
+--- TreesitterContext
 vim.cmd("highlight link TreesitterContextLineNumber TreesitterContext")
 
--- Trouble
+--- Trouble
 Group.new("TroubleIconDirectory", colors.yellow)
 
---
+---
 
 local cError = groups.Error.fg
 local cWarn = groups.Warning.fg
@@ -229,10 +233,10 @@ Group.new("DiagnosticUnderlineInfo", colors.none, colors.none, styles.undercurl,
 Group.new("DiagnosticUnderlineHint", colors.none, colors.none, styles.undercurl, cHint)
 Group.new("DiagnosticUnderlineOk", colors.none, colors.none, styles.undercurl, cOk)
 
--- lspsaga
+--- lspsaga
 -- Group.new('HoverBorder', colors.yellow, colors.none, styles.none)
 
--- Hop
+--- Hop
 local set_hl = vim.api.nvim_set_hl
 -- Highlight used for the mono-sequence keys (i.e. sequence of 1).
 set_hl(0, "HopNextKey", { fg = "#ff007c", bold = true, ctermfg = 198, cterm = { bold = true }, default = false })
@@ -247,7 +251,7 @@ set_hl(0, "HopCursor", { link = "Cursor", default = false })
 -- Highlight used for preview pattern
 set_hl(0, "HopPreview", { link = "IncSearch", default = false })
 
--- mini.icons & which-key
+--- mini.icons & which-key
 Group.new("MiniIconsAzure", colors.azure)
 Group.new("MiniIconsBlue", colors.blue)
 Group.new("MiniIconsCyan", colors.cyan)
@@ -258,9 +262,39 @@ Group.new("MiniIconsPurple", colors.violet)
 Group.new("MiniIconsRed", colors.red)
 Group.new("MiniIconsYellow", colors.yellow)
 
--- nvim-notify
-Group.new("NotifyINFOIcon", colors.green)
-Group.new("NotifyINFOTitle", colors.green)
+--- nvim-notify
+Group.new("NotifyBackground", colors.base1, bg_color_fix) -- fix bg
+local level_colors = {
+  ERROR = colors.red,
+  WARN = colors.yellow,
+  INFO = colors.green,
+  DEBUG = colors.base1,
+  TRACE = colors.magenta,
+}
+
+for lv, c in pairs(level_colors) do
+  Group.new("Notify" .. lv .. "Icon", c)
+  Group.new("Notify" .. lv .. "Title", c)
+  Group.link("Notify" .. lv .. "Body", groups.NotifyBackground) -- fix bg
+  Group.new("Notify" .. lv .. "Border", c:dark(), bg_color_fix) -- fix bg
+end
+
+--- noice.nvim ---
+Group.new("NoiceCmdline", groups.Normal, bg_color_fix) -- fix bg
+Group.new("NoiceCmdlinePopup", groups.Normal, bg_color_fix) -- fix bg
+local type_color = {
+  Cmdline = colors.green,
+  Filter = colors.green,
+  Help = colors.yellow,
+  Lua = colors.azure,
+  Search = colors.yellow,
+}
+for t, c in pairs(type_color) do
+  Group.new("NoiceCmdlineIcon" .. t, c)
+  Group.new("NoiceCmdlinePopupBorder" .. t, c)
+end
+Group.new("NoiceConfirmBorder", colors.yellow)
+Group.new("NoiceSplit", groups.NormalFloat) -- fix bg remove it
 
 local universal_colors = {
   yellow = colors.yellow:to_vim(),
@@ -286,11 +320,13 @@ local universal_colors = {
 }
 
 require("xxx.core.colors").set_universal(universal_colors)
+require("xxx.core.colors").gen_rainbow_highlight()
 
 -- Enables pseudo-transparency for the |popup-menu|.
 -- cmp's menu, vim.notify (nvim-notify)
-vim.opt.pumblend = 0
+vim.opt.pumblend = 6
 -- Enables pseudo-transparency for a floating window. doc view
 -- 当不为0时,如果边框的highlight没有设置背景色或者背景色偏黑色, 经过neovim计算后背景会变成黑色
 -- 出现浮动框黑色背景的问题, 一般都是该浮动框设置了这个配置引起的
--- vim.opt.winblend = 7
+-- 解决办法为给相关的highlight添加或修改guibg
+vim.opt.winblend = 6
