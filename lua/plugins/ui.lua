@@ -72,9 +72,6 @@ return {
     event = { "User FileOpened" },
     submodules = false,
     config = function()
-      -- vim.schedule(function()
-      --   vim.print(LazyVim.get_plugin("indent-blankline.nvim").opts.scope.highlight)
-      -- end)
       local highlight = LazyVim.get_plugin("indent-blankline.nvim").opts.scope.highlight
       local opts = {
         highlight = highlight,

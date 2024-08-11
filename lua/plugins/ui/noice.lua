@@ -24,7 +24,11 @@ M.opts = {
         winblend = 0,
       },
     },
-    cmdline = {},
+    cmdline = {
+      win_options = {
+        winblend = 0,
+      },
+    },
     cmdline_popup = {},
     cmdline_output = {},
     messages = {},
@@ -52,7 +56,7 @@ M.opts = {
   },
   popupmenu = {
     ---@type 'nui'|'cmp'
-    -- backend = "nui",
+    backend = "nui",
   },
   lsp = {
     progress = {

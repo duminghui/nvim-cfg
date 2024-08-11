@@ -287,14 +287,17 @@ local type_color = {
   Filter = colors.green,
   Help = colors.yellow,
   Lua = colors.azure,
+
   Search = colors.yellow,
 }
 for t, c in pairs(type_color) do
   Group.new("NoiceCmdlineIcon" .. t, c)
   Group.new("NoiceCmdlinePopupBorder" .. t, c)
 end
-Group.new("NoiceConfirmBorder", colors.yellow)
-Group.new("NoiceSplit", groups.NormalFloat) -- fix bg remove it
+
+Group.new("NoiceConfirm", groups.Normal, bg_color_fix)
+-- Group.new("NoiceConfirmBorder", colors.yellow, bg_color_fix)
+Group.new("NoiceSplit", groups.NormalFloat) -- fix remove bg
 
 local universal_colors = {
   yellow = colors.yellow:to_vim(),
