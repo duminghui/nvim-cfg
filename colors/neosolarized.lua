@@ -169,6 +169,7 @@ Group.new("TelescopeNormal", groups.Normal, bg_color_fix) -- fix bg
 -- Group.new('TelescopePromptTitle', colors.base1, colors.purple, styles.none)
 -- Group.new('TelescopePreviewTitle', colors.base02, colors.green, styles.none)
 -- Group.new('TelescopeResultsTitle', colors.base02, colors.yellow, styles.none)
+Group.new("TelescopePromptPrefix", colors.green)
 Group.new("TelescopePromptTitle", colors.base2, colors.purple, styles.none)
 Group.new("TelescopePreviewTitle", colors.base2, colors.green, styles.none)
 Group.new("TelescopeResultsTitle", colors.base2, colors.yellow, styles.none)
@@ -282,12 +283,12 @@ end
 --- noice.nvim ---
 Group.new("NoiceCmdline", groups.Normal, bg_color_fix) -- fix bg
 Group.new("NoiceCmdlinePopup", groups.Normal, bg_color_fix) -- fix bg
+Group.new("NoiceCmdlinePopupBorder", colors.cyan, bg_color_fix) -- fix bg
 local type_color = {
   Cmdline = colors.green,
   Filter = colors.green,
   Help = colors.yellow,
   Lua = colors.azure,
-
   Search = colors.yellow,
 }
 for t, c in pairs(type_color) do
@@ -298,6 +299,10 @@ end
 Group.new("NoiceConfirm", groups.Normal, bg_color_fix)
 -- Group.new("NoiceConfirmBorder", colors.yellow, bg_color_fix)
 Group.new("NoiceSplit", groups.NormalFloat) -- fix remove bg
+-- Group.new("NoiceCmdlinePrompt", colors.red)
+Group.new("NoicePopupmenu", groups.Normal, bg_color_fix)
+-- Group.new("NoicePopupmenuBorder", colors.red, bg_color_fix)
+-- Group.new("NoicePopupmenuSelected", colors.red, bg_color_fix)
 
 local universal_colors = {
   yellow = colors.yellow:to_vim(),

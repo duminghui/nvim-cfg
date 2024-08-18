@@ -28,13 +28,13 @@ return {
     opts = function(_, opts)
       local icon_patchs = {
         [""] = icons.ui.Search,
-        [""] = icons.ui.File,
-        [""] = icons.ui.Files,
-        [""] = icons.ui.Text,
+        [""] = icons.ui.FilePlus,
+        [""] = icons.ui.ArrangeBringToFront,
+        [""] = icons.ui.TextFind,
         [""] = icons.ui.Gear,
         [""] = icons.ui.Restore,
         [""] = icons.misc.Package,
-        [""] = icons.ui.SinOut,
+        [""] = icons.ui.SignOut,
         [""] = icons.ui.Gear,
       }
       local config = opts.config
@@ -43,6 +43,10 @@ return {
         local icon_patch = icon_patchs[icon]
         if icon_patch then
           entity.icon = string.format("%s ", icon_patch)
+        end
+        if entity.key == "c" then
+          entity.desc = " Config"
+          entity.desc = entity.desc .. string.rep(" ", 43 - #entity.desc)
         end
       end
 
@@ -68,8 +72,7 @@ return {
 
   {
     "HiPhish/rainbow-delimiters.nvim",
-    dependencies = { "lukas-reineke/indent-blankline.nvim" },
-    event = { "User FileOpened" },
+    event = "LazyFile",
     submodules = false,
     config = function()
       local highlight = LazyVim.get_plugin("indent-blankline.nvim").opts.scope.highlight
@@ -78,7 +81,6 @@ return {
       }
       require("rainbow-delimiters.setup").setup(opts)
     end,
-    priority = 49,
   },
 
   { import = "plugins.ui.tmux" },

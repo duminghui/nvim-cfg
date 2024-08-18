@@ -25,16 +25,27 @@ M.opts = {
       },
     },
     cmdline = {
-      win_options = {
-        winblend = 0,
-      },
+      -- win_options = {
+      --   winblend = 0,
+      -- },
     },
-    cmdline_popup = {},
+    cmdline_popup = {
+      -- this is below at cmdline
+    },
     cmdline_output = {},
     messages = {},
     confirm = {},
     hover = {},
-    popupmenu = {},
+    popupmenu = {
+      win_options = {
+        -- winblend = 0,
+        winhighlight = {
+          -- fix background black
+          NormalFloat = "NoicePopupmenu",
+          CursorLine = "CursorLine",
+        },
+      },
+    },
   },
   cmdline = {
     ---@type table<string, CmdlineFormat>
@@ -57,6 +68,7 @@ M.opts = {
   popupmenu = {
     ---@type 'nui'|'cmp'
     backend = "nui",
+    -- backend = "cmp",
   },
   lsp = {
     progress = {

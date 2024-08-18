@@ -43,17 +43,18 @@ return {
   {
     "nvimdev/dashboard-nvim",
     opts = function(_, opts)
+      local icons = xxx.icons
       local entities = {
         {
           action = "SessionManager load_session",
           desc = " Sessions",
-          icon = xxx.icons.ui.WindowRestore .. " ",
+          icon = icons.ui.WindowRestore .. " ",
           key = "s",
         },
         {
           action = "SessionManager load_last_session",
           desc = " Last Session",
-          icon = xxx.icons.ui.Restore .. " ",
+          icon = icons.ui.Restore .. " ",
           key = "L",
         },
       }

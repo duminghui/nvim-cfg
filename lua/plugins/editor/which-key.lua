@@ -1,5 +1,6 @@
 local M = {}
-M.opts = {
+
+local opts_new = {
   -- filter = function(mapping)
   --   return true
   -- end,
@@ -111,6 +112,13 @@ M.opts = {
     },
   },
 }
+
+M.opts2 = function(_, opts)
+  vim.print(LazyVim.merge(opts, opts_new))
+end
+
+M.opts = opts_new
+
 ---@type LazySpec
 return {
   "folke/which-key.nvim",
