@@ -11,14 +11,14 @@ return {
       multi_windows = false,
     },
     keys = {
-      { "<leader><leader>L", "<cmd>HopLine<CR>", desc = "HopLine" },
       { "<leader><leader>a", "<cmd>HopAnywhere<CR>", desc = "HopAnywhere" },
-      { "<leader><leader>l", "<cmd>HopLineStart<CR>", desc = "HopLineStart" },
-      { "<leader><leader>p", "<cmd>HopPattern<CR>", desc = "HopPattern" },
       { "<leader><leader>s", "<cmd>HopChar1<CR>", desc = "HopChar1" },
       { "<leader><leader>t", "<cmd>HopChar2<CR>", desc = "HopChar2" },
-      { "<leader><leader>v", "<cmd>HopVertical<CR>", desc = "HopVertical" },
       { "<leader><leader>w", "<cmd>HopWord<CR>", desc = "HopWord" },
+      { "<leader><leader>l", "<cmd>HopLineStart<CR>", desc = "HopLineStart" },
+      { "<leader><leader>L", "<cmd>HopLine<CR>", desc = "HopLine" },
+      { "<leader><leader>p", "<cmd>HopPattern<CR>", desc = "HopPattern" },
+      { "<leader><leader>v", "<cmd>HopVertical<CR>", desc = "HopVertical" },
     },
   },
 }

@@ -85,6 +85,8 @@ local keymaps = {
   { "n", "<leader>br", vscode_action("workbench.action.closeEditorsToTheRight") },
   { "n", "<leader>bl", vscode_action("workbench.action.closeEditorsToTheLeft") },
   { "n", "<leader>bo", vscode_action("workbench.action.closeOtherEditors") },
+  { "n", "<leader>tt", vscode_action("workbench.action.terminal.toggleTerminal") },
+  { "n", "<leader>tn", vscode_action("workbench.action.terminal.new") },
   { "n", "<leader>e", vscode_action("workbench.view.explorer") },
   { "n", "gr", vscode_action("editor.action.referenceSearch.trigger") },
   { "n", "gI", vscode_action("editor.action.peekImplementation") },

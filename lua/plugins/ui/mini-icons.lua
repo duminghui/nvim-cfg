@@ -179,6 +179,8 @@ M.opts = function(_, opts)
       fish = { glyph = "󱢺", hl = "MiniIconsGreen" },
       sh = { glyph = "", hl = "MiniIconsGreen" },
       zsh = { glyph = "", hl = "MiniIconsGreen" },
+      lua = { glyph = "󰢱", hl = "MiniIconsBlue" },
+      tmux = { glyph = "󰕮" },
     },
   }
   return LazyVim.merge({}, opts, new_opts)

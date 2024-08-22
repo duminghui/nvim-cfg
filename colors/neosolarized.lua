@@ -33,7 +33,8 @@ Color.new("white", "#eee8d5")
 -- Color.new("azure", "#87CEEB")
 -- Color.new("azure", "#87CEFA")
 -- #2b8db3
-Color.new("azure", "#51a0cf")
+-- Color.new("azure", "#51a0cf")
+-- vim.print(colors.azure:to_vim())
 
 local opts = LazyVim.opts("neosolarized.nvim") or {}
 

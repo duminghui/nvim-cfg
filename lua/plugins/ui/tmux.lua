@@ -19,7 +19,7 @@ return {
 
         -- TMUX >= 3.2: all yanks (and deletes) will get redirected to system
         -- clipboard by tmux
-        redirect_to_clipboard = true,
+        redirect_to_clipboard = false,
 
         -- offset controls where register sync starts
         -- e.g. offset 2 lets registers 0 and 1 untouched
@@ -32,6 +32,12 @@ return {
 
         -- synchronizes registers *, +, unnamed, and 0 till 9 with tmux buffers.
         sync_registers = true,
+
+        -- synchronizes registers when pressing p and P.
+        sync_registers_keymap_put = true,
+
+        -- synchronizes registers when pressing (C-r) and ".
+        sync_registers_keymap_reg = true,
 
         -- syncs deletes with tmux clipboard as well, it is adviced to
         -- do so. Nvim does not allow syncing registers 0 and 1 without
@@ -66,11 +72,23 @@ return {
     -- cond = function()
     --   return os.getenv("TERM_PROGRAM") == "tmux"
     -- end,
+    keys = {
+      { "<C-h>", "<CMD>lua require'tmux'.move_left()<CR>", desc = "Move To Left Window" },
+      { "<C-j>", "<CMD>lua require'tmux'.move_bottom()<CR>", desc = "Move To Bottom Window" },
+      { "<C-k>", "<CMD>lua require'tmux'.move_top()<CR>", desc = "Move To Top Window" },
+      { "<C-l>", "<CMD>lua require'tmux'.move_right()<CR>", desc = "Move To Right Window" },
+      { "<A-h>", "<CMD>lua require'tmux'.resize_left()<CR>", desc = "Resize Left" },
+      { "<A-j>", "<CMD>lua require'tmux'.resize_bottom()<CR>", desc = "Resize Bottom" },
+      { "<A-k>", "<CMD>lua require'tmux'.resize_top()<CR>", desc = "Resize Top" },
+      { "<A-l>", "<CMD>lua require'tmux'.resize_right()<CR>", desc = "Resize Right" },
+      { "p", "v:lua.tmux.sync_registers('p')", desc = "Tmux registers put" },
+      { "P", "v:lua.tmux.sync_registers('P')", desc = "Tmux registers put" },
+    },
   },
-  {
-    "aserowy/tmux.nvim",
-    opts = function()
-      -- vim.print(string.format("clipboard tmux opts: %s", vim.opt.clipboard._value))
-    end,
-  },
+  -- {
+  --   "aserowy/tmux.nvim",
+  --   opts = function()
+  --     vim.print(string.format("clipboard tmux opts: %s", vim.opt.clipboard._value))
+  --   end,
+  -- },
 }

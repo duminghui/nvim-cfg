@@ -243,6 +243,7 @@ local M = {
     Tab = "󰌒",
     Table = "󰓫",
     Target = "󰀘",
+    Terminal = "󰞷", -- 
     Text = "󰭷", -- 󰭷 󰈚
     TextFind = "󱎸",
     TextMultiple = "󰪷",
