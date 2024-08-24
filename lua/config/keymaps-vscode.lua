@@ -10,7 +10,8 @@ local function cmd(c)
 end
 
 local function vscode_action(vs_action)
-  return cmd(fmt('lua require"vscode".action("%s")', vs_action))
+  -- return cmd(fmt('lua require"vscode".action("%s")', vs_action))
+  return cmd(fmt("call v:lua.require('vscode').action('%s')", vs_action))
 end
 
 local function cursor_move(to)

@@ -1,4 +1,5 @@
 local vscode = vim.g.vscode == 1
+-- vscode = true
 
 ---@type LazySpec
 return {
