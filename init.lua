@@ -1,6 +1,7 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("xxx.core.g")
 require("config.lazy")
+require("config.commands")
 
 --- 加载顺序
 ---------- 无文件打开时的顺序 -------------

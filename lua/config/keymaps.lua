@@ -29,6 +29,13 @@ del_keymappings(del_keymaps)
 
 local keymaps = {
   { "n", "<leader>w", "<CMD>w!<CR>", { desc = "Save File" } },
+  { "n", "<leader>R", "<CMD>ShowRtpPopup<CR>", { desc = "Show Runtime Path" } },
+  {
+    "n",
+    "<leader>cP",
+    require("xxx.info.show").clients_config_popup,
+    { desc = "Show Client Config" },
+  },
   { "n", "<A-j>", "<Cmd>resize +1<CR>", { desc = "Increase height" } },
   { "n", "<A-k>", "<Cmd>resize -1<CR>", { desc = "Decrease height" } },
   { "n", "<A-l>", "<Cmd>vertical resize +1<CR>", { desc = "Increase width" } },

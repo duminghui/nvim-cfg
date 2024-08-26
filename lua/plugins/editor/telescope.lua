@@ -130,25 +130,22 @@ return {
   {
     {
       "nvim-telescope/telescope.nvim",
-      dependencies = { "nvim-telescope/telescope-frecency.nvim" },
+      -- dependencies = { "nvim-telescope/telescope-frecency.nvim" },
       opts = {
         extensions = {
           frecency = {
             -- default: $XDG_STATE_HOME/nvim/file_frecency.bin
             db_root = vim.fn.stdpath("state"),
+            db_safe_mode = true,
             show_scores = true,
             show_unindexed = true,
             ignore_patterns = {
+              "*/.git",
               "*.git/*",
               "*/tmp/*",
               "*/node_modules/*",
               "*/vendor/*",
-            },
-            workspaces = {
-              -- ["nvim"] = os.getenv("HOME_DIR") .. ".config/nvim",
-              -- ["dots"] = os.getenv("HOME_DIR") .. ".dotfiles",
-              -- ["project"] = os.getenv("PROJECT_DIR"),
-              -- ["project2"] = os.getenv("OTHER_PROJECT_DIR"),
+              "*/.DS_Store",
             },
           },
         },
@@ -156,12 +153,22 @@ return {
     },
     {
       "nvim-telescope/telescope-frecency.nvim", -- Get frequently opened files
-      lazy = true,
+      dependencies = {
+        -- 要先加载telescope, telescope中的frecency配置才起作用
+        "nvim-telescope/telescope.nvim",
+      },
+      event = "VeryLazy",
       config = function(_, _)
         local ok, err = pcall(require("telescope").load_extension, "frecency")
         if not ok then
           LazyVim.error("Failed to load `telescope-frecency.nvim`:\n" .. err)
         end
+        -- LazyVim.on_load("telescope.nvim", function()
+        --   local ok, err = pcall(require("telescope").load_extension, "frecency")
+        --   if not ok then
+        --     LazyVim.error("Failed to load `telescope-frecency.nvim`:\n" .. err)
+        --   end
+        -- end)
       end,
     },
   },

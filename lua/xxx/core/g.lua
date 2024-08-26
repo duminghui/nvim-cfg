@@ -33,3 +33,11 @@ function _G.del_keymappings(keymaps)
     vim.keymap.del(mode, lhs, opts)
   end
 end
+
+---@param cmds table[]
+function _G.commands(cmds)
+  cmds = cmds or {}
+  for _, cmd in pairs(cmds) do
+    vim.api.nvim_create_user_command(cmd.name, cmd.fn, cmd.opts or {})
+  end
+end

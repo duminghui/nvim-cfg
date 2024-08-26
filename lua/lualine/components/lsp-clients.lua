@@ -6,7 +6,7 @@
 
 local default_options = {
   icons = {
-    active = "󰊲",
+    active = "",
     inactive = "󰊱",
   },
   clients = {},
@@ -25,63 +25,17 @@ function M:init(options)
 end
 
 function M:update_status()
-  local buf_clients = vim.lsp.get_clients({ bufnr = 0 })
-  if not buf_clients or #buf_clients == 0 then
-    return self.options.icons.inactive .. " Inactive "
-  end
-  local buf_client_names = {}
-  local copilot_active = false
-  for _, client in pairs(buf_clients) do
-    -- print(client.name, client.method)
-    if client.name ~= "null-ls" then
-      table.insert(buf_client_names, client.name)
-    end
-    if client.name == "copilot" then
-      copilot_active = true
-    end
-  end
+  local active_clients = require("xxx.lsp.active-clients")
+  local client_names, copilot_active = active_clients.list_client_names()
 
-  -- add formatter
-  local buf_ft = vim.bo.filetype
-
-  local nl = require("xxx.lsp.null-ls")
-
-  local supported_formatters = nl.list_registered(buf_ft, "formatter")
-  vim.list_extend(buf_client_names, supported_formatters)
-
-  -- add linter
-  local supported_linters = nl.list_registered(buf_ft, "linter")
-  vim.list_extend(buf_client_names, supported_linters)
-
-  -- add code action
-  local supported_code_actions = nl.list_registered(buf_ft, "code-action")
-  vim.list_extend(buf_client_names, supported_code_actions)
-
-  if LazyVim.has("conform.nvim") then
-    --- @type conform.FormatterInfo[]
-    local available_formatters = require("conform").list_formatters()
-    for _, formatter in ipairs(available_formatters) do
-      local formatter_name = formatter.name
-      if not formatter.available then
-        formatter_name = string.format("%s(N)", formatter_name)
-      end
-      table.insert(buf_client_names, formatter_name)
-    end
-  end
-
-  local unique_client_names = vim.fn.uniq(buf_client_names)
-
-  local language_servers = ""
-  if type(unique_client_names) == "table" then
-    language_servers = table.concat(unique_client_names, icons.ui.SquareSmall)
-  end
+  local language_servers = table.concat(client_names, icons.ui.SquareSmall)
 
   if copilot_active then
     local copilot = self.options.clients.copilot
     language_servers = language_servers .. self:format_hl(self.highlights["copilot"]) .. " " .. copilot.symbol -- .. "%*"
   end
-
-  return self.options.icons.active .. " " .. language_servers
+  local icon = #language_servers > 0 and self.options.icons.active or self.options.icons.inactive
+  return icon .. " " .. language_servers
 end
 
 return M

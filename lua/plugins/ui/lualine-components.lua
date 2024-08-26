@@ -113,7 +113,10 @@ M.lsp_clients = {
   },
   icon = nil,
   color = function()
-    return next(vim.lsp.get_clients({ bufnr = 0 })) ~= nil and "SlClientActive" or "SlClientInactive"
+    local active_clients = require("xxx.lsp.active-clients")
+    local client_names, _ = active_clients.list_client_names()
+    return #client_names > 0 and "SlClientActive" or "SlClientInactive"
+    -- return next(vim.lsp.get_clients({ bufnr = 0 })) ~= nil and "SlClientActive" or "SlClientInactive"
   end,
   separator = right_seq_both,
 }

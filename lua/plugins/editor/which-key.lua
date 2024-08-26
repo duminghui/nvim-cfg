@@ -6,6 +6,7 @@ local opts_new = {
   -- end,
   spec = {
     {
+      { "<leader>", group = "<leader>" },
       { "<leader><leader>", group = "Hop" },
       { "<leader>w", group = "Save File" },
     },
