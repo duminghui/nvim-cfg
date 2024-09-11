@@ -31,6 +31,7 @@ opt.clipboard = { "unnamedplus" } -- Use the system clipboard
 -- 如果vscode中配置会造成vscode显示多个光标符号
 opt.colorcolumn = vim.g.vscode and "" or "80,100,120,140,160"
 opt.cmdheight = 2 -- Hide the command bar
+opt.pumheight = 12
 
 -- opt.statuscolumn = ""
 
