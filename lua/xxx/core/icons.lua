@@ -218,6 +218,7 @@ local M = {
     Plus = "󰐕",
     Plus2 = "󰙞",
     Project = "󰂺",
+    Puzzle = "󰐱",
     ------ Q ------
     Question = "󰋖",
     ------ R ------

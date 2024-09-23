@@ -33,7 +33,8 @@ return {
         [""] = icons.ui.TextFind,
         [""] = icons.ui.Gear,
         [""] = icons.ui.Restore,
-        [""] = icons.misc.Package,
+        -- [""] = icons.misc.Package,
+        [""] = icons.ui.Puzzle,
         [""] = icons.ui.SignOut,
         [""] = icons.ui.Gear,
       }
