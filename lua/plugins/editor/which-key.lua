@@ -39,6 +39,7 @@ local opts_new = {
       { plugin = "telescope.nvim", pattern = "telescope", icon = "", color = "blue" },
       { plugin = "trouble.nvim", cat = "filetype", name = "trouble" },
       { plugin = "todo-comments.nvim", cat = "file", name = "TODO" },
+      { plugin = "grapple.nvim", pattern = "grapple", icon = "󰛢", color = "azure" },
       { plugin = "nvim-spectre", icon = "󰛔 ", color = "blue" },
       { plugin = "grug-far.nvim", pattern = "grug", icon = "󰛔 ", color = "blue" },
       { plugin = "noice.nvim", pattern = "noice", icon = "󰈸", color = "orange" },
