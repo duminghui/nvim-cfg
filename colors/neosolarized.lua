@@ -12,6 +12,8 @@ local darkgold = colors.gold:dark()
 -- Color.new("gold", "#FFD700")
 Color.new("darkgold", darkgold:to_vim())
 
+-- color values: https://github.com/altercation/solarized
+
 -- Color.new("base03", "#002b36")
 -- Color.new("base02", "#073642")
 -- Color.new("base01", "#586e75")
