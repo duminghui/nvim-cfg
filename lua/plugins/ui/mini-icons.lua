@@ -87,6 +87,7 @@ local patch_icons = {
   [""] = true,
   [""] = true,
   [""] = true,
+  [""] = true,
   -- filetype custom --
   [""] = "󰙪",
   -- lsp --
@@ -154,7 +155,7 @@ local function icon_patch(category, name, icon)
   else
     local codepoint = require("utf8").codepoint(icon)
     if codepoint <= 0xF0000 then
-      vim.print(string.format("%-9s %-18s      %s (0x%X) not patch", category, name, icon, codepoint))
+      vim.print(string.format("[ui/mini-icons] %-9s %-18s      %s (0x%X) not patch", category, name, icon, codepoint))
     end
   end
   return new_icon, new_icon ~= icon
