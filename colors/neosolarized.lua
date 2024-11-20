@@ -307,6 +307,20 @@ Group.new("NoicePopupmenu", groups.Normal, bg_color_fix)
 -- Group.new("NoicePopupmenuBorder", colors.red, bg_color_fix)
 -- Group.new("NoicePopupmenuSelected", colors.red, bg_color_fix)
 
+-- Snacks Dashboard
+Group.link("SnacksDashboardNormal", groups.Normal)
+Group.new("SnacksDashboardHeader", groups.Normal, colors.none, styles.bold)
+Group.link("SnacksDashboardIcon", groups.Normal)
+Group.link("SnacksDashboardDesc", groups.Normal)
+-- Group.new("SnacksDashboardTitle", groups.Normal, colors.none, styles.bold)
+Group.link("SnacksDashboardTitle", groups.Title)
+Group.new("SnacksDashboardFooter", groups.Normal, colors.none, styles.bold)
+Group.link("SnacksDashboardSpecial", groups.Special)
+Group.link("SnacksDashboardFile", groups.Special)
+Group.link("SnacksDashboardTerminal", groups.SnacksDashboardNormal)
+Group.link("SnacksDashboardKey", groups.Number)
+Group.link("SnacksDashboardDir", groups.NonText)
+
 local universal_colors = {
   yellow = colors.yellow:to_vim(),
   orange = colors.orange:to_vim(),

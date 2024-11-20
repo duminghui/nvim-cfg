@@ -23,8 +23,11 @@ return {
 
   { import = "plugins.ui.mini-icons" },
 
+  { import = "plugins.ui.snacks-dashboard" },
+
   {
     "nvimdev/dashboard-nvim",
+    enabled = false,
     opts = function(_, opts)
       local icon_patchs = {
         [""] = icons.ui.Search,

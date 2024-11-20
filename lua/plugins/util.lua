@@ -28,15 +28,15 @@ return {
     import = "plugins.util.neovim-session-manager",
   },
 
-  {
-    "xvzc/chezmoi.nvim",
-    opts = {
-      edit = {},
-      notification = {
-        on_open = true,
-        on_apply = true,
-        on_watch = false,
-      },
-    },
-  },
+  -- {
+  --   "xvzc/chezmoi.nvim",
+  --   opts = {
+  --     edit = {},
+  --     notification = {
+  --       on_open = true,
+  --       on_apply = true,
+  --       on_watch = false,
+  --     },
+  --   },
+  -- },
 }
