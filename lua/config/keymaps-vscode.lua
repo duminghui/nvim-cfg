@@ -70,7 +70,7 @@ local keymaps = {
   { "n", "<leader>fb", vscode_action("workbench.action.showAllEditors") },
   -- ['<leader>fb'] = { 'n', vscode('workbench.action.showAllEditorsByMostRecentlyUsed') },
 
-  -- 从终端跳到编辑器
+  -- 从终端跳到编辑器 这种方式不使用
   -- 需要在vscode中配置keybindings
   -- {
   --   "command": "vscode-neovim.send",
@@ -81,7 +81,15 @@ local keymaps = {
   --   // the input to send to Neovim
   --   "args": ",bb"
   -- }
-  { "n", "<leader>bb", vscode_action("workbench.action.focusActiveEditorGroup") },
+  -- { "n", "<leader>bb", vscode_action("workbench.action.focusActiveEditorGroup") },
+  -- 使用以下方式, 在vscode中配置keybindings
+  -- {
+  --   "key": "ctrl+k",
+  --   "command": "workbench.action.focusActiveEditorGroup",
+  --   "when": "terminalFocus",
+  --   "not work": ""
+  -- }
+
   { "n", "<leader>bd", vscode_action("workbench.action.closeActiveEditor") },
   { "n", "<leader>br", vscode_action("workbench.action.closeEditorsToTheRight") },
   { "n", "<leader>bl", vscode_action("workbench.action.closeEditorsToTheLeft") },
