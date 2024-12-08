@@ -30,8 +30,10 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     -- { import = "lazyvim.plugins.extras.util.chezmoi" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
+    -- vscode在lazyvim.plugins.xtras中有自动加载
     { import = "lazyvim.plugins.extras.vscode" },
     { import = "plugins" },
+    { import = "plugins.extras.vscode" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
