@@ -40,36 +40,4 @@ return {
       { "<leader>qd", "<CMD>SessionManager delete_session<CR>", desc = "Delete Session" },
     },
   },
-  {
-    "nvimdev/dashboard-nvim",
-    opts = function(_, opts)
-      local icons = xxx.icons
-      local entities = {
-        {
-          action = "SessionManager load_session",
-          desc = " Sessions",
-          icon = icons.ui.WindowRestore .. " ",
-          key = "s",
-        },
-        {
-          action = "SessionManager load_last_session",
-          desc = " Last Session",
-          icon = icons.ui.Restore .. " ",
-          key = "L",
-        },
-      }
-
-      for idx, entity in ipairs(opts.config.center) do
-        if entity.key == "s" then
-          table.remove(opts.config.center, idx)
-          for idx_add, entity_add in ipairs(entities) do
-            entity_add.desc = entity_add.desc .. string.rep(" ", 43 - #entity_add.desc)
-            entity_add.key_format = "  %s"
-            table.insert(opts.config.center, idx + idx_add - 1, entity_add)
-          end
-          break
-        end
-      end
-    end,
-  },
 }

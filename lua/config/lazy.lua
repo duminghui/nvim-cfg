@@ -27,7 +27,6 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.lang.toml" },
     { import = "lazyvim.plugins.extras.lang.yaml" },
-    -- { import = "lazyvim.plugins.extras.ui.dashboard-nvim" },
     { import = "lazyvim.plugins.extras.ui.treesitter-context" },
     -- { import = "lazyvim.plugins.extras.util.chezmoi" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },

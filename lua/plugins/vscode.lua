@@ -4,7 +4,8 @@ local vscode = vim.g.vscode == 1
 ---@type LazySpec
 return {
 
-  { "folke/snacks.nvim", vscode = true },
+  -- 忘记为什么加这个了, 先注释掉
+  -- { "folke/snacks.nvim", vscode = true },
   { "smoka7/hop.nvim", vscode = true },
 
   { "monaqa/dial.nvim", cond = vscode and true },
