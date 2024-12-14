@@ -1,6 +1,9 @@
 local M = {}
 
+---@class wk.Opts
 local opts_new = {
+  ---@type false | "classic" | "modern" | "helix"
+  preset = "modern",
   -- filter = function(mapping)
   --   return true
   -- end,

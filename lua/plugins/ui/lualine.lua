@@ -29,17 +29,27 @@ function M.opts(_, opts)
       lualine_c = {},
       lualine_x = {
         ---@diagnostic disable: undefined-field
-        -- stylua: ignore
         {
-          function() return require("noice").api.status.mode.get() end,
-          cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-          color = function() return LazyVim.ui.fg("Constant") end,
+          function()
+            return require("noice").api.status.mode.get()
+          end,
+          cond = function()
+            return package.loaded["noice"] and require("noice").api.status.mode.has()
+          end,
+          color = function()
+            return { fg = Snacks.util.color("Constant", "fg") }
+          end,
         },
-        -- stylua: ignore
         {
-          function() return require("noice").api.status.command.get() end,
-          cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-          color = function() return LazyVim.ui.fg("Statement") end,
+          function()
+            return require("noice").api.status.command.get()
+          end,
+          cond = function()
+            return package.loaded["noice"] and require("noice").api.status.command.has()
+          end,
+          color = function()
+            return { fg = Snacks.util.color("Statement") }
+          end,
         },
         -- -- stylua: ignore
         -- {
@@ -47,11 +57,12 @@ function M.opts(_, opts)
         --   cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
         --   color = function() return LazyVim.ui.fg("Debug") end,
         -- },
-        -- stylua: ignore
         {
           require("lazy.status").updates,
           cond = require("lazy.status").has_updates,
-          color = function() return LazyVim.ui.fg("Special") end,
+          color = function()
+            return { fg = Snacks.util.color("Special") }
+          end,
         },
       },
       lualine_y = {},

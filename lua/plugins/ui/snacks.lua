@@ -2,7 +2,61 @@ local icons = xxx.icons
 
 local M = {}
 
+---@type snacks.Config
 M.opts = {
+  indent = {
+    indent = {
+      hl = {
+        "SnacksIndent1",
+        "SnacksIndent2",
+        "SnacksIndent3",
+        "SnacksIndent4",
+        "SnacksIndent5",
+        "SnacksIndent6",
+        "SnacksIndent7",
+        "SnacksIndent8",
+      },
+    },
+    animate = {
+      duration = {
+        step = 20,
+        total = 200,
+      },
+    },
+    scope = {
+      hl = {
+        "SnacksIndentScope1",
+        "SnacksIndentScope1",
+        "SnacksIndentScope2",
+        "SnacksIndentScope2",
+        "SnacksIndentScope3",
+        "SnacksIndentScope3",
+        "SnacksIndentScope4",
+        "SnacksIndentScope4",
+        "SnacksIndentScope5",
+        "SnacksIndentScope5",
+        "SnacksIndentScope6",
+        "SnacksIndentScope6",
+        "SnacksIndentScope7",
+        "SnacksIndentScope7",
+        "SnacksIndentScope8",
+        "SnacksIndentScope8",
+      },
+    },
+    chunk = {
+      enabled = false,
+      hl = {
+        "SnacksIndentScope1",
+        "SnacksIndentScope2",
+        "SnacksIndentScope3",
+        "SnacksIndentScope4",
+        "SnacksIndentScope5",
+        "SnacksIndentScope6",
+        "SnacksIndentScope7",
+        "SnacksIndentScope8",
+      },
+    },
+  },
   dashboard = {
     preset = {
       -- stylua: ignore
@@ -51,6 +105,16 @@ M.opts = {
 }
 
 return {
-  "folke/snacks.nvim",
-  opts = M.opts,
+  {
+    "folke/snacks.nvim",
+    ---@type snacks.Config
+    opts = {
+      indent = { enabled = true },
+      scroll = { enabled = false },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = M.opts,
+  },
 }
