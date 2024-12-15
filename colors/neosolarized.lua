@@ -165,6 +165,7 @@ vim.cmd([[
 -- Group.link('TelescopeSelection', groups.CursorLine)
 -- Group.new('TelescopeSelectionCaret', colors.cyan)
 
+-- fix 因为主题顔色背景透明,winblen有值时, 而造成的黑色背景问题
 -- 下面三个的背景色和Normal保持一至, 即使Normal没有背景色也要填上
 Group.new("TelescopeBorder", colors.base01, bg_color_fix) -- fix bg
 Group.new("TelescopePromptBorder", colors.cyan, bg_color_fix) -- fix bg
@@ -176,6 +177,65 @@ Group.new("TelescopePromptPrefix", colors.green)
 Group.new("TelescopePromptTitle", colors.base2, colors.purple, styles.none)
 Group.new("TelescopePreviewTitle", colors.base2, colors.green, styles.none)
 Group.new("TelescopeResultsTitle", colors.base2, colors.yellow, styles.none)
+
+-- fzf-lua
+Group.new("FzfLuaBorder", colors.base01, bg_color_fix) -- fix bg
+Group.new("FzfLuaNormal", groups.Normal, bg_color_fix) -- fix bg
+Group.new("FzfLuaTitle", colors.base2, colors.purple, styles.none)
+Group.new("FzfLuaPreviewTitle", colors.base2, colors.green, styles.none)
+Group.new("FzfLuaFzfHeader", colors.base2, colors.yellow, styles.none)
+
+Group.new("FzfLuaFzfPrompt", colors.green)
+Group.new("FzfLuaFzfPointer", colors.cyan)
+
+-- Group.new("FzfLuaScrollBorderFull", bg_color_fix, colors.darkgold, styles.reverse)
+Group.new("FzfLuaScrollBorderFull", colors.darkgold, bg_color_fix)
+
+-- Group.new("FzfLuaNormal", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBorder", colors.gold, colors.magenta)
+-- Group.new("FzfLuaTitle", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBackdrop", colors.gold, colors.magenta)
+-- Group.new("FzfLuaPreviewNormal", colors.gold, colors.magenta)
+-- Group.new("FzfLuaPreviewBorder", colors.gold, colors.magenta)
+-- Group.new("FzfLuaPreviewTitle", colors.gold, colors.magenta)
+-- Group.new("FzfLuaCursor", colors.gold, colors.magenta)
+-- Group.new("FzfLuaCursorLine", colors.gold, colors.magenta)
+-- Group.new("FzfLuaCursorLineNr", colors.gold, colors.magenta)
+-- Group.new("FzfLuaSearch", colors.gold, colors.magenta)
+-- Group.new("FzfLuaScrollBorderEmpty", colors.gold, colors.magenta)
+-- Group.new("FzfLuaScrollBorderFull", colors.gold, colors.magenta)
+-- Group.new("FzfLuaScrollFloatEmpty", colors.gold, colors.magenta)
+-- Group.new("FzfLuaScrollFloatFull", colors.gold, colors.magenta)
+-- Group.new("FzfLuaHelpNormal", colors.gold, colors.magenta)
+-- Group.new("FzfLuaHelpBorder", colors.gold, colors.magenta)
+-- Group.new("FzfLuaHeaderBind", colors.gold, colors.magenta)
+-- Group.new("FzfLuaHeaderText", colors.gold, colors.magenta)
+-- Group.new("FzfLuaPathColNr", colors.gold, colors.magenta)
+-- Group.new("FzfLuaPathLineNr", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBufName", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBufNr", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBufFlagCur", colors.gold, colors.magenta)
+-- Group.new("FzfLuaBufFlagAlt", colors.gold, colors.magenta)
+-- Group.new("FzfLuaTabTitle", colors.gold, colors.magenta)
+-- Group.new("FzfLuaTabMarker", colors.gold, colors.magenta)
+-- Group.new("FzfLuaDirIcon", colors.gold, colors.magenta)
+-- Group.new("FzfLuaDirPart", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFilePart", colors.gold, colors.magenta)
+-- Group.new("FzfLuaLiveSym", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfNormal", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfCursorLine", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfMatch", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfBorder", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfScrollbar", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfSeparator", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfGutter", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfHeader", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfInfo", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfPointer", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfMarker", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfSpinner", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfPrompt", colors.gold, colors.magenta)
+-- Group.new("FzfLuaFzfQuery", colors.gold, colors.magenta)
 
 --- fidget
 -- Group.link('FidgetDone', groups.Constant) -- Constant
@@ -291,7 +351,7 @@ local type_color = {
   Cmdline = colors.green,
   Filter = colors.green,
   Help = colors.yellow,
-  Lua = colors.azure,
+  Lua = colors.blue,
   Search = colors.yellow,
 }
 for t, c in pairs(type_color) do

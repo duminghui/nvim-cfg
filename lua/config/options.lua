@@ -5,14 +5,14 @@
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
-vim.g.lazyvim_picker = "telescope"
+-- vim.g.lazyvim_picker = "telescope"
 
 local opt = vim.opt
 
 opt.title = true
 opt.belloff = { "esc", "spell" }
 
-opt.completeopt = "menu,menuone,noselect"
+opt.completeopt = "menu,menuone,noinsert,noselect"
 
 opt.mouse = "" -- disable mouse in all modes
 opt.mousemoveevent = true -- for bufferline hover

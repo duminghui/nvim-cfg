@@ -108,6 +108,14 @@ local keymaps = {
 
   { "n", "[d", vscode_action("editor.action.marker.prev") },
   { "n", "]d", vscode_action("editor.action.marker.next") },
+
+  -- 显示上/下一个更改
+  { "n", "[h", vscode_action("editor.action.dirtydiff.previous") },
+  { "n", "]h", vscode_action("editor.action.dirtydiff.next") },
+  -- 转到上/下一个更改
+  -- workbench.action.compareEditor.previousChange
+  { "n", "[h", vscode_action("workbench.action.editor.previousChange") },
+  { "n", "]h", vscode_action("workbench.action.editor.nextChange") },
 }
 
 keymappings(keymaps)

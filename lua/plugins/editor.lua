@@ -4,7 +4,8 @@ return {
   { import = "plugins.editor.neo-tree" },
   { import = "plugins.editor.hop" },
   { import = "plugins.editor.which-key" },
-  { import = "plugins.editor.telescope" },
+  { import = "plugins.editor.telescope", enabled = LazyVim.has("telescope.nvim") },
+  { import = "plugins.editor.fzf", enabled = LazyVim.has("fzf-lua") },
   { import = "plugins.editor.trouble" },
   {
     "lewis6991/gitsigns.nvim",

@@ -43,35 +43,6 @@ return {
   {
     "folke/snacks.nvim",
     ---@type snacks.Config
-    opts = {
-      ---@type table<string, snacks.win.Config>
-      styles = {
-        notification = {
-          wo = {
-            winblend = 0,
-          },
-        },
-      },
-      ---@type snacks.notifier.Config | { enabled: boolean }
-      notifier = {
-        timeout = 6000, -- default timeout in ms
-        icons = {
-          error = icons.diagnostic.Error .. " ",
-          warn = icons.diagnostic.Warning .. " ",
-          info = icons.diagnostic.Information .. " ",
-          debug = icons.diagnostic.Debug .. " ",
-          trace = " ",
-        },
-        ---@type snacks.notifier.style
-        style = "compact",
-      },
-      ---@type snacks.toggle.Config
-      toggle = {
-        icon = {
-          enabled = "󰔡 ",
-          disabled = "󰨙 ",
-        },
-      },
-    },
+    opts = {},
   },
 }
