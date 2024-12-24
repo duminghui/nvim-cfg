@@ -16,21 +16,22 @@ M.opts = {
   --   },
   -- },
   ---@type table<string, snacks.win.Config>
-  -- styles = {
-  --   -- notification = {
-  --   --   wo = {
-  --   --     winblend = 6,
-  --   --   },
-  --   -- },
-  --   -- ["notification.history"] = {
-  --   -- wo = {
-  --   --   winblend = 0,
-  --   -- },
-  --   -- backdrop = {
-  --   --   transparent = true,
-  --   -- },
-  --   -- },
-  -- },
+  styles = {
+    notification = {
+      wo = {
+        winblend = 0,
+      },
+    },
+    notification_history = {
+      wo = {
+        winblend = 0,
+      },
+      backdrop = {
+        blend = 0,
+        transparent = true,
+      },
+    },
+  },
   ---@type snacks.notifier.Config | { enabled: boolean }
   notifier = {
     timeout = 6000, -- default timeout in ms
