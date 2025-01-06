@@ -194,7 +194,7 @@ local M = {
     ------ L ------
     Lightbulb = "󰌵",
     LineLeft = "▏",
-    LineMiddle = "│",
+    LineMiddle = "│", -- 这个会影响highlight的显示效果, 会变色
     LineLeftBold = "▎",
     List = "󰷐",
     Lock = "󰌾", -- 

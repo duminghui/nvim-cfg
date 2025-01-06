@@ -53,7 +53,9 @@ M.opts = {
     },
   },
   indent = {
+    enabled = true,
     indent = {
+      char = icons.ui.LineLeft,
       hl = {
         "SnacksIndent1",
         "SnacksIndent2",
@@ -72,6 +74,7 @@ M.opts = {
       },
     },
     scope = {
+      char = icons.ui.LineLeft,
       hl = {
         "SnacksIndentScope1",
         "SnacksIndentScope1",

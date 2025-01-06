@@ -117,7 +117,7 @@ local function diagnostics_indicator(_, _, diagnostics, _)
       table.insert(result, symbols[type] .. " " .. count_str)
     end
   end
-  return #result > 0 and table.concat(result, " ") or ""
+  return #result > 0 and table.concat(result, " ") or "xx"
 end
 
 local function custom_filter(bufnr)
@@ -147,6 +147,7 @@ M.opts = function(_, opts)
   -- vim.print(plugin._.handlers.event)
   opts = opts or {}
 
+  --- @type bufferline.UserConfig
   local opts_new = {
     options = {
       buffer_close_icon = icons.ui.Close,

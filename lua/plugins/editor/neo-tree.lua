@@ -40,7 +40,8 @@ M.opts = {
     highlight_tab = "NeoTreeTabInactive",
     highlight_tab_active = "NeoTreeTabActive",
     -- highlight_background = "NeoTreeTabInactive",
-    highlight_background = "BufferLineFill",
+    -- highlight_background = "BufferLineFill",
+    highlight_background = "NeoTreeTabBg",
     highlight_separator = "NeoTreeTabSeparatorInactive",
     highlight_separator_active = "NeoTreeTabSeparatorActive",
   },
@@ -69,7 +70,7 @@ M.opts = {
       padding = 1,
       -- indent guides
       with_markers = true,
-      indent_marker = "│",
+      indent_marker = icons.ui.LineMiddle,
       last_indent_marker = "└",
       -- highlight = 'NeoTreeIndentMarker',
       highlight = "NeoTreeNormal",

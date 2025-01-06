@@ -142,16 +142,17 @@ Group.new("NeoTreeFileNameOpened", groups.Normal, nil, styles.bold)
 Group.new("NeoTreeSymbolicLinkTarget", colors.cyan)
 Group.new("NeoTreeModified", colors.darkgold)
 
--- Group.new("NeoTreeTabInactive", colors.base00, colors.base03)
--- Group.new("NeoTreeTabActive", colors.base1, nil, styles.bold + styles.italic)
--- Group.new("NeoTreeTabSeparatorInactive", colors.base02, colors.base03)
--- Group.new("NeoTreeTabSeparatorActive", colors.base02)
+Group.new("NeoTreeTabBg", colors.base01, colors.base02)
+Group.new("NeoTreeTabInactive", colors.base00, colors.base03)
+Group.new("NeoTreeTabActive", colors.base1, nil, styles.bold + styles.italic)
+Group.new("NeoTreeTabSeparatorInactive", colors.base02, colors.base03)
+Group.new("NeoTreeTabSeparatorActive", colors.base02)
 
 vim.cmd([[
-    highlight! link NeoTreeTabInactive BufferLineBackground
-    highlight! link NeoTreeTabActive BufferLineBufferSelected
-    highlight! link NeoTreeTabSeparatorInactive BufferLineSeparator
-    highlight! link NeoTreeTabSeparatorActive BufferLineSeparatorSelected
+    " highlight! link NeoTreeTabInactive BufferLineBackground
+    " highlight! link NeoTreeTabActive BufferLineBufferSelected
+    " highlight! link NeoTreeTabSeparatorInactive BufferLineSeparator
+    " highlight! link NeoTreeTabSeparatorActive BufferLineSeparatorSelected
     highlight! link NeoTreeDirectoryName Normal
     highlight! link NeoTreeFileName Normal
   ]])
@@ -189,7 +190,7 @@ Group.new("FzfLuaFzfPrompt", colors.green)
 Group.new("FzfLuaFzfPointer", colors.cyan)
 
 -- Group.new("FzfLuaScrollBorderFull", bg_color_fix, colors.darkgold, styles.reverse)
-Group.new("FzfLuaScrollBorderFull", colors.darkgold, bg_color_fix)
+Group.new("FzfLuaScrollBorderFull", colors.gold, bg_color_fix)
 Group.new("FzfLuaPathLineNr", colors.gold)
 Group.new("FzfLuaBufFlagCur", colors.red)
 Group.new("FzfLuaBufFlagAlt", colors.blue)
