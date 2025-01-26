@@ -1,6 +1,7 @@
 return {
   "ibhagwan/fzf-lua",
   opts = function(_, opts)
+    -- vim.print("fzf-lua opts(my)")
     local new_opts = {
       winopts = {
         border = "single",
@@ -15,7 +16,7 @@ return {
         ["--layout"] = "default",
       },
       ui_select = function(fzf_opts, items)
-        return vim.tbl_deep_extend("force", fzf_opts, {
+        local new = vim.tbl_deep_extend("force", fzf_opts, {
           prompt = " ❯ ",
           winopts = {
             title = " " .. vim.trim((fzf_opts.prompt or "Select"):gsub("%s*:%s*$", "")) .. " ",
@@ -43,6 +44,8 @@ return {
             height = math.floor(math.min(vim.o.lines * 0.8, #items + 2) + 0.5),
           },
         })
+        fzf_opts.prompt = " ❯ "
+        return new
       end,
     }
     return vim.tbl_deep_extend("force", opts, new_opts)
@@ -52,7 +55,8 @@ return {
       -- use the same prompt for all pickers for profile `default-title` and
       -- profiles that use `default-title` as base profile
       local function fix(t)
-        t.prompt = t.prompt ~= nil and " ❯ " or nil
+        -- t.prompt = t.prompt ~= nil and " ❯ " or nil
+        t.prompt = t.prompt ~= nil and " ❯ " or " ❯ "
         for _, v in pairs(t) do
           if type(v) == "table" then
             fix(v)
