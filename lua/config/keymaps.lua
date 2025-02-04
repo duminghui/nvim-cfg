@@ -3,7 +3,7 @@
 -- Add any additional keymaps here
 
 local del_keymaps = {
-  { "n", "<leader>w" },
+  -- { "n", "<leader>w" },
   { "n", "<leader>wd" },
   -- { "n", "<leader>w-" },
   -- { "n", "<leader>w|" },
