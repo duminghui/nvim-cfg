@@ -29,6 +29,7 @@ autocmd("TextYankPost", {
   pattern = "*",
   desc = "Highlight text on yank",
   callback = function()
-    require("vim.highlight").on_yank({ higroup = "Search", timeout = 150 })
+    -- require("vim.highlight").on_yank({ higroup = "Search", timeout = 150 })
+    require("vim.hl").on_yank({ higroup = "Search", timeout = 150 })
   end,
 })
