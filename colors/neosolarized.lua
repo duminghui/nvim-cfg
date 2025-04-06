@@ -83,8 +83,10 @@ Group.new("CursorLine", colors.none, colors.base02, styles.none, colors.base01)
 Group.new("CursorLineNr", colors.gold, colors.none, styles.bold, colors.base01)
 Group.link("CursorColumn", groups.CursorLine)
 
-Group.new("StatusLine", colors.base1, colors.base02, styles.reverse)
-Group.new("StatusLineNC", colors.base00, colors.base02, styles.reverse)
+-- Group.new("StatusLine", colors.base1, colors.base02, styles.reverse)
+-- Group.new("StatusLineNC", colors.base00, colors.base02, styles.reverse)
+Group.new("StatusLine", colors.base1, colors.base03)
+Group.new("StatusLineNC", colors.base00, colors.base03)
 -- fix statusline 上的白块
 -- Group.new('StatusLine', colors.base02)
 -- Group.new('StatusLineNC', colors.base02)
