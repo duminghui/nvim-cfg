@@ -1,17 +1,17 @@
 local icons = xxx.icons
 
-local function fix_highlight(name, fg, bg)
+local function fix_highlight(name, fg, bg, bg_selected)
   local hl = {}
   hl[name] = { fg = fg, bg = bg }
-  hl[name .. "_visible"] = { fg = fg }
-  hl[name .. "_selected"] = { fg = fg }
+  hl[name .. "_visible"] = { fg = fg, bg = bg_selected }
+  hl[name .. "_selected"] = { fg = fg, bg = bg_selected }
   return hl
 end
 
 local function highlights()
   local colors = require("xxx.core.colors").universal()
-  local tag_fg = colors.bufferline.tag_fg
-  local tag_bg = colors.bufferline.tag_bg
+  local bg = colors.bufferline.bg
+  local bg_selected = colors.bufferline.bg_selected
   local text_fg = colors.bufferline.text
   local text_selected = colors.bufferline.text_selected
   local c_modified = colors.bufferline.modified
@@ -39,60 +39,74 @@ local function highlights()
   -- offset_separator
   -------------------
   local hl = {
-    fill = { bg = tag_fg },
+    fill = { bg = bg },
     -- buffer 标签栏,不在visible和selected状态下
     background = {
       fg = text_fg, -- text color
-      bg = tag_bg,
+      bg = bg,
     },
     tab = {
       fg = text_fg,
-      bg = tag_bg,
+      bg = bg,
     },
     tab_selected = {
       fg = colors.darkgold,
+      bg = bg_selected,
       bold = true,
+    },
+    tab_separator = {
+      fg = bg,
+      bg = bg,
+    },
+    tab_separator_selected = {
+      fg = bg,
+      bg = bg_selected,
     },
     tab_close = {
       fg = colors.red,
     },
     buffer_visible = {
       fg = text_selected,
+      bg = bg_selected,
       bold = true,
       -- italic = true,
     },
     buffer_selected = {
       fg = text_selected,
+      bg = bg_selected,
       bold = true,
       italic = true,
     },
-    tab_separator = {
-      fg = tag_fg,
-      bg = tag_bg,
-    },
-    tab_separator_selected = {
-      fg = tag_fg,
-    },
+    -- tab上左右的两个箭头
     trunc_marker = {
       fg = text_selected,
-      bg = tag_fg,
+      bg = bg,
     },
+    -- diagnostic = {},
+    -- diagnostic_visible = {},
+    -- diagnostic_selected = {},
   }
 
-  local modified_hl = fix_highlight("modified", c_modified, tag_bg)
-  local duplicate_hl = fix_highlight("duplicate", c_duplicate, tag_bg)
-  local separator_hl = fix_highlight("separator", tag_fg, tag_bg)
-  local pick_hl = fix_highlight("pick", c_pick, tag_bg)
+  local close_button_hl = fix_highlight("close_button", text_selected, bg, bg_selected)
+  local modified_hl = fix_highlight("modified", c_modified, bg, bg_selected)
+  local duplicate_hl = fix_highlight("duplicate", c_duplicate, bg, bg_selected)
+  local separator_hl = fix_highlight("separator", bg, bg, bg_selected)
+  local pick_hl = fix_highlight("pick", c_pick, bg, bg_selected)
 
-  hl = vim.tbl_deep_extend("force", hl, modified_hl, duplicate_hl, separator_hl, pick_hl)
+  hl = vim.tbl_deep_extend("force", hl, close_button_hl, modified_hl, duplicate_hl, separator_hl, pick_hl)
 
   -- fix diagnostic highlight
   local diagnostic_names = { "hint", "info", "warning", "error" }
   for _, name in ipairs(diagnostic_names) do
     -- text
-    hl[name] = { bg = tag_bg }
+    hl[name] = { bg = bg }
+    hl[name .. "_visible"] = { fg = text_fg, bg = bg_selected, bold = true }
+    hl[name .. "_selected"] = { bg = bg_selected, bold = true }
+    -- icon & number
     local diagnostic_name = name .. "_diagnostic"
-    hl[diagnostic_name] = { bg = tag_bg }
+    hl[diagnostic_name] = { bg = bg }
+    hl[diagnostic_name .. "_visible"] = { fg = text_fg, bg = bg_selected, bold = true }
+    hl[diagnostic_name .. "_selected"] = { bg = bg_selected, bold = true }
   end
 
   return hl

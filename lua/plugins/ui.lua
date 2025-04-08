@@ -17,6 +17,7 @@ return {
   -- },
   { import = "plugins.ui.bufferline" },
   { import = "plugins.ui.lualine" },
+  -- 使用snacks里的代替
   -- { import = "plugins.ui.indent-blankline" },
   { import = "plugins.ui.noice" },
 

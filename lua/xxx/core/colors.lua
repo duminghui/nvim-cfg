@@ -57,8 +57,8 @@ local universal = {
   bufferline = {
     text = "#657b83",
     text_selected = "#93a1a1",
-    tag_fg = "#073642",
-    tag_bg = "#002b36",
+    bg = "#073642",
+    bg_selected = "#002b36",
     modified = "#ccac00",
     pick = "#d33682",
   },

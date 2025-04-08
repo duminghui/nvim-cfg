@@ -149,10 +149,10 @@ Group.new("NeoTreeSymbolicLinkTarget", colors.cyan)
 Group.new("NeoTreeModified", colors.darkgold)
 
 Group.new("NeoTreeTabBg", colors.base01, colors.base02)
-Group.new("NeoTreeTabInactive", colors.base00, colors.base03)
-Group.new("NeoTreeTabActive", colors.base1, nil, styles.bold + styles.italic)
-Group.new("NeoTreeTabSeparatorInactive", colors.base02, colors.base03)
-Group.new("NeoTreeTabSeparatorActive", colors.base02)
+Group.new("NeoTreeTabInactive", colors.base00, colors.base02)
+Group.new("NeoTreeTabActive", colors.base1, colors.base03, styles.bold + styles.italic)
+Group.new("NeoTreeTabSeparatorInactive", colors.base02, colors.base02)
+Group.new("NeoTreeTabSeparatorActive", colors.base02, colors.base03)
 
 vim.cmd([[
     " highlight! link NeoTreeTabInactive BufferLineBackground
@@ -407,8 +407,8 @@ local universal_colors = {
   bufferline = {
     text = colors.base00:to_vim(),
     text_selected = colors.base1:to_vim(),
-    tag_fg = colors.base02:to_vim(),
-    tag_bg = colors.base03:to_vim(),
+    bg = colors.base02:to_vim(),
+    bg_selected = colors.base03:to_vim(),
     modified = darkgold:to_vim(),
     pick = colors.magenta:to_vim(),
   },
