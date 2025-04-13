@@ -1,12 +1,14 @@
 local icons = xxx.icons
 
 local left_sep_both = {
-  left = " ",
+  -- left = " ",
+  left = "",
   right = "",
 }
 
-local right_seq_both = {
-  left = " ",
+local right_sep_both = {
+  -- left = " ",
+  left = "",
   right = "",
 }
 
@@ -99,7 +101,7 @@ M.treesitter = {
     local ts = vim.treesitter.highlighter.active[buf]
     return ts and not vim.tbl_isempty(ts) and "SlTreesitterActive" or "SlTreesitterInactive"
   end,
-  separator = right_seq_both,
+  separator = right_sep_both,
 }
 
 M.lsp_clients = {
@@ -118,7 +120,7 @@ M.lsp_clients = {
     return #client_names > 0 and "SlClientActive" or "SlClientInactive"
     -- return next(vim.lsp.get_clients({ bufnr = 0 })) ~= nil and "SlClientActive" or "SlClientInactive"
   end,
-  separator = right_seq_both,
+  separator = right_sep_both,
 }
 
 local function is_in_session()
@@ -135,7 +137,7 @@ M.session_status = {
   color = function()
     return is_in_session() and "SlSessionActive" or "SlSessionInactive"
   end,
-  separator = right_seq_both,
+  separator = right_sep_both,
   cond = function()
     return LazyVim.has("neovim-session-manager")
   end,
@@ -144,14 +146,15 @@ M.session_status = {
 M.file_info = {
   "file-info",
   color = "SlComponent",
-  separator = right_seq_both,
+  separator = right_sep_both,
 }
 
 M.location = {
   "location",
   color = "SlLocation",
   separator = {
-    left = " ",
+    -- left = " ",
+    left = "",
   },
 }
 

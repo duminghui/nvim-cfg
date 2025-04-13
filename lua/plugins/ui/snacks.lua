@@ -15,6 +15,9 @@ M.opts = {
   --     transparent = false,
   --   },
   -- },
+  input = {
+    icon = "󰏭",
+  },
   ---@type table<string, snacks.win.Config>
   styles = {
     notification = {

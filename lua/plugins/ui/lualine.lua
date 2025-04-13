@@ -8,8 +8,10 @@ function M.opts(_, opts)
       theme = "xxx",
       -- 在组件中设置了separator, 下面两个就不起作用了
       -- 同一个section中不同组件间的间格
-      component_separators = { left = " ", right = "" },
-      section_separators = { left = " ", right = "" },
+      -- component_separators = { left = " ", right = "" },
+      -- section_separators = { left = " ", right = "" },
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
       always_divide_middle = true,
     },
     sections = {
