@@ -90,6 +90,7 @@ local patch_icons = {
   [""] = true,
   [""] = true,
   [""] = true,
+  [""] = "󰨞",
   -- filetype custom --
   [""] = "󰙪",
   -- lsp --
@@ -127,6 +128,7 @@ local patch_icons = {
   [""] = "󰀫", -- value
   [""] = "󰫧", -- variable
   -- os --
+  -- other --
 }
 
 ---@param category string
