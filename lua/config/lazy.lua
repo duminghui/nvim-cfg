@@ -51,7 +51,10 @@ require("lazy").setup({
   },
   concurrency = 20,
   install = { colorscheme = { "neosolarized", "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = {
+    enabled = true, -- check for plugin updates periodically
+    notify = false, -- notify on update
+  }, -- automatically check for plugin updates
   ui = {
     size = { width = 0.8, height = 0.7 },
     -- border = 'single',

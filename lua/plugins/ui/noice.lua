@@ -48,6 +48,7 @@ M.opts = {
     },
   },
   cmdline = {
+    enabled = true, -- enables the Noice cmdline UI
     ---@type table<string, CmdlineFormat>
     format = {
       ---@diagnostic disable:missing-fields
