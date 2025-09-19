@@ -228,5 +228,5 @@ M.config = function(_, opts)
 end
 return {
   { "uga-rosa/utf8.nvim", lazy = true },
-  { "echasnovski/mini.icons", opts = M.opts, config = M.config },
+  { "nvim-mini/mini.icons", opts = M.opts, config = M.config },
 }

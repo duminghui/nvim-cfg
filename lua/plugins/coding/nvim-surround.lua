@@ -5,7 +5,7 @@ return {
     keys = { "ys", "cs", "ds" },
   },
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     enabled = false,
   },
 }

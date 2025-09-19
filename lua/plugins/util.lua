@@ -1,7 +1,7 @@
 ---@type LazySpec
 return {
   {
-    "echasnovski/mini.hipatterns",
+    "nvim-mini/mini.hipatterns",
     enabled = false,
   },
   {
