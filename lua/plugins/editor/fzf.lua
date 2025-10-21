@@ -70,4 +70,7 @@ return {
     end
     require("fzf-lua").setup(opts)
   end,
+  keys = {
+    { "<leader>,", false },
+  },
 }
