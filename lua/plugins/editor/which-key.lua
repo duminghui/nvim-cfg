@@ -7,10 +7,11 @@ local opts_new = {
   -- filter = function(mapping)
   --   return true
   -- end,
+  ---@type wk.Spec
   spec = {
     {
       { "<leader>", group = "<leader>" },
-      { "<leader><leader>", group = "Hop" },
+      { "<leader><leader>", group = "Hop", icon = { icon = "󰍎", color = "green" } },
       { "<leader>w", group = "Save File" },
     },
   },
@@ -49,6 +50,9 @@ local opts_new = {
       { plugin = "persistence.nvim", icon = "󰉉 ", color = "azure" },
       { plugin = "neotest", cat = "filetype", name = "neotest-summary" },
       { plugin = "lazy.nvim", cat = "filetype", name = "lazy" },
+      { plugin = "snacks.nvim", icon = "󱥰 ", color = "purple" },
+      { plugin = "refactoring.nvim", pattern = "refactor", icon = "󱦙 ", color = "cyan" },
+      { pattern = "profiler", icon = "󰉁 ", color = "orange" }, -- ⚡
       { plugin = "CopilotChat.nvim", icon = " ", color = "orange" },
       { pattern = "%f[%a]git", cat = "filetype", name = "git" },
       { pattern = "terminal", icon = " ", color = "red" },
@@ -75,7 +79,8 @@ local opts_new = {
       { plugin = "neovim-session-manager", icon = "󰉉 ", color = "azure" },
       { pattern = "lowercase", icon = "󰬵" },
       { pattern = "uppercase", icon = "󰬶" },
-      { pattern = "hop", icon = "󰍎", color = "green" },
+      { pattern = "hop", icon = "󰍎", color = "green" }, -- 这个不起作用了
+      { plugin = "hop.nvim", icon = "󰍎", color = "green" },
       { plugin = "tmux.nvim", icon = "󰕮", color = "cyan" },
     },
     keys = {
