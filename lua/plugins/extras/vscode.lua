@@ -45,4 +45,19 @@ Config.options.defaults.cond = function(plugin)
   return vim.tbl_contains(enabled, plugin.name) or plugin.vscode
 end
 
+-- local create_autocmd = vim.api.nvim_create_autocmd
+--
+-- local function augroup(name)
+--   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
+-- end
+
+-- create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+--   group = augroup("nospell"),
+--   once = true,
+--   callback = function()
+--     vim.opt_local.spell = false
+--     -- vim.cmd("set nospell")
+--   end,
+-- })
+
 return {}

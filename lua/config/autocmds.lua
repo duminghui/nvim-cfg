@@ -11,9 +11,9 @@ local function augroup(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
-local autocmd = vim.api.nvim_create_autocmd
+local create_autocmd = vim.api.nvim_create_autocmd
 
-autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
   group = augroup("user_file_opened"),
   once = true,
   callback = function(args)
@@ -26,10 +26,13 @@ autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
 
 ---- below don't use in vscode
 if vim.g.vscode then
+  -- 删除自动添加拼写的功能, 这个功能会在文本下面加波浪线
+  -- https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua#L97
+  vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
   return
 end
 
-autocmd("TextYankPost", {
+create_autocmd("TextYankPost", {
   group = augroup("highlight_yank"),
   pattern = "*",
   desc = "Highlight text on yank",
