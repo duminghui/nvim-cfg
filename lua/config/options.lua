@@ -21,6 +21,9 @@ opt.breakindentopt = "shift:2,sbr" -- lin wrap opts
 opt.showcmd = true
 opt.cursorcolumn = true
 
+opt.number = true
+opt.relativenumber = true
+
 -- Highlight the screen line of the cursor with CursorLine and the line number with CursorLineNr **
 -- line,screenline,number,both
 -- both: line,number
