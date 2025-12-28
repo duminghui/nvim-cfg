@@ -60,4 +60,14 @@ end
 --   end,
 -- })
 
+-- create_autocmd({ "BufRead", "BufWinEnter", "BufNewFile" }, {
+--   group = augroup("relativenumber"),
+--   callback = function()
+--     local current_time = os.date("%Y-%m-%d %H:%M:%S")
+--     print("当前时间:", current_time)
+--     vim.opt.relativenumber = true
+--     -- vim.cmd("set nospell")
+--   end,
+-- })
+
 return {}
