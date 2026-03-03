@@ -91,6 +91,8 @@ local patch_icons = {
   [""] = true,
   [""] = true,
   [""] = "󰨞",
+  [""] = true,
+  [""] = true,
   -- filetype custom --
   [""] = "󰙪",
   -- lsp --

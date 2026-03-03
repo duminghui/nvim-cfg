@@ -125,6 +125,7 @@ M.opts = {
         { icon = icons.ui.Restore .. " ", key = "L", desc = "Last Session", action=":SessionManager load_last_session" },
         { icon = icons.ui.Puzzle .. " ", key = "x", desc = "Lazy Extras", action = ":LazyExtras" },
         { icon = "󰒲 ", key ="l", desc = "Lazy", action = ":Lazy" },
+        { icon = "󰌨 ", key ="m", desc = "Mason", action = ":Mason" },
         { icon = icons.ui.SignOut .. " ", key = "q", desc = "Quit", action = ":qa" },
       },
     },
