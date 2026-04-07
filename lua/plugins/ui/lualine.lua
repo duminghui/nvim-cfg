@@ -43,6 +43,7 @@ function M.opts(_, opts)
             return { fg = Snacks.util.color("Constant", "fg") }
           end,
         },
+        coms.empty,
         {
           function()
             return require("noice").api.status.command.get()
@@ -60,6 +61,7 @@ function M.opts(_, opts)
         --   cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
         --   color = function() return LazyVim.ui.fg("Debug") end,
         -- },
+        coms.empty,
         {
           require("lazy.status").updates,
           cond = require("lazy.status").has_updates,

@@ -49,7 +49,7 @@ require("lazy").setup({
   rocks = {
     enabled = false,
   },
-  concurrency = 20,
+  concurrency = 10,
   install = { colorscheme = { "neosolarized", "tokyonight", "habamax" } },
   checker = {
     enabled = true, -- check for plugin updates periodically
