@@ -89,11 +89,6 @@ opt.shortmess = {
   q = false, -- use "recording" instead of "recording @a"
   F = true, -- don't give the file info when editing a file, like `:silent` was used for the command
   S = false, -- do not show search count message when searching, e.g.'[1/5]',
-  -- remove in neovim 10
-  f = false, -- use "(3 of 5)" instead of "(file 3 of 5)"
-  i = false, -- use "[noeol]" instead of "[Incomplete last line]"
-  n = false, -- use "[New]" instead of "[New File]"
-  x = false, -- use "[dos]" instead of "[dos format]", "[unix]" instead of "[unix format]" and "[mac]" instead of "[mac format]"
 }
 opt.virtualedit = "onemore"
 

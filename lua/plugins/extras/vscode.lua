@@ -50,25 +50,26 @@ local opt = vim.opt
 -- fix vscode auto-open the output messages view
 opt.cmdheight = 66
 
--- opt.shortmess = {
---   l = false, -- use "999L, 888B" instead of "999 lines, 888 bytes"
---   m = false, -- use "[+]" instead of "[Modified]"
---   r = false, -- use "[RO]" instead of "[readonly]"
---   w = false, -- use "[w]" instead of "written" for file write message and "[a]" instead of "appended" for ':w >> file' command
---   a = true, -- all of the above abbreviations
---   o = true, -- overwrite message for writing a file with subsequent message for reading a file (useful for ":wn" or when 'autowrite' on)
---   O = true, -- message for reading a file overwrites any previous message;  also for quickfix message (e.g., ":cn")
---   s = true, -- don't give "search hit BOTTOM, continuing at TOP" or "search hit TOP, continuing at BOTTOM" messages; when using the search count do not show "W" after the count message (see S below)
---   t = true, -- truncate file message at the start if it is too long to fit on the command-line, "<" will appear in the left most column; ignored in Ex mode T = true, --  truncate other messages in the middle if they are too long to fit on the command line; "..." will appear in the middle; ignored in Ex mode
---   W = true, -- don't give "written" or "[w]" when writing a file
---   A = true, -- don't give the "ATTENTION" message when an existing swap file is found
---   I = true, -- don't give the intro message when starting Vim,:intro
---   c = true, -- don't give |ins-completion-menu| messages; for example, "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found", "Back at original", etc.
---   C = true, -- don't give messages while scanning for ins-completion items, for instance "scanning tags"
---   q = false, -- use "recording" instead of "recording @a"
---   F = true, -- don't give the file info when editing a file, like `:silent` was used for the command
---   S = true, -- do not show search count message when searching, e.g.'[1/5]',
--- }
+opt.shortmess = {
+  l = false, -- use "999L, 888B" instead of "999 lines, 888 bytes"
+  m = false, -- use "[+]" instead of "[Modified]"
+  r = false, -- use "[RO]" instead of "[readonly]"
+  w = false, -- use "[w]" instead of "written" for file write message and "[a]" instead of "appended" for ':w >> file' command
+  a = true, -- all of the above abbreviations
+  o = true, -- overwrite message for writing a file with subsequent message for reading a file (useful for ":wn" or when 'autowrite' on)
+  O = true, -- message for reading a file overwrites any previous message;  also for quickfix message (e.g., ":cn")
+  s = true, -- don't give "search hit BOTTOM, continuing at TOP" or "search hit TOP, continuing at BOTTOM" messages; when using the search count do not show "W" after the count message (see S below)
+  t = true, -- truncate file message at the start if it is too long to fit on the command-line, "<" will appear in the left most column; ignored in Ex mode T = true, --  truncate other messages in the middle if they are too long to fit on the command line; "..." will appear in the middle; ignored in Ex mode
+  T = true, --  truncate other messages in the middle if they are too long to fit on the command line; "..." will appear in the middle; ignored in Ex mode
+  W = true, -- don't give "written" or "[w]" when writing a file
+  A = true, -- don't give the "ATTENTION" message when an existing swap file is found
+  I = true, -- don't give the intro message when starting Vim,:intro
+  c = true, -- don't give |ins-completion-menu| messages; for example, "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found", "Back at original", etc.
+  C = true, -- don't give messages while scanning for ins-completion items, for instance "scanning tags"
+  q = false, -- use "recording" instead of "recording @a"
+  F = true, -- don't give the file info when editing a file, like `:silent` was used for the command
+  S = true, -- do not show search count message when searching, e.g.'[1/5]',
+}
 
 -- local create_autocmd = vim.api.nvim_create_autocmd
 --
