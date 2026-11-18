@@ -5,6 +5,12 @@ return {
   {
     "aserowy/tmux.nvim",
     event = "VeryLazy",
+    -- cond = function()
+    --   return os.getenv("TERM_PROGRAM") == "tmux"
+    -- end,
+    cond = function()
+      return vim.env.TMUX ~= nil
+    end,
     -- 要加opts, 否则插件不进行配置
     opts = {
       copy_sync = {
@@ -68,10 +74,6 @@ return {
         resize_step_y = 1,
       },
     },
-    -- 不用加下面的条件, 一直用tmux.nvim来进行窗口导航和改变窗口大小
-    -- cond = function()
-    --   return os.getenv("TERM_PROGRAM") == "tmux"
-    -- end,
     keys = {
       { "<C-h>", "<CMD>lua require'tmux'.move_left()<CR>", desc = "Move To Left Window" },
       { "<C-j>", "<CMD>lua require'tmux'.move_bottom()<CR>", desc = "Move To Bottom Window" },
